@@ -1224,49 +1224,28 @@ body{
    SAVE CONTACT  
 ================================================== */  
   
-function saveContact(){  
-  
-    const vcard =  
-`BEGIN:VCARD  
-VERSION:3.0  
-FN:گل RAMA  
-ORG:گل RAMA  
-TEL;TYPE=CELL:+989369855063  
-URL:  
-NOTE:گلفروشی گل RAMA - رشت  
-END:VCARD`;  
-  
-    const blob = new Blob(  
-        [vcard],  
-        {  
-            type:"text/vcard;charset=utf-8"  
-        }  
-    );  
-  
-  
-    const url =  
-        URL.createObjectURL(blob);  
-  
-  
-    const a =  
-        document.createElement("a");  
-  
-  
-    a.href = url;  
-  
-    a.download = "RAMA-Gol.vcf";  
-  
-  
-    document.body.appendChild(a);  
-  
-    a.click();  
-  
-    a.remove();  
-  
-  
-    URL.revokeObjectURL(url);  
-  
-}  
+function saveContact() {
+        const vcard = [
+          "BEGIN:VCARD",
+          "VERSION:3.0",
+          "N:;گل RAMA;;;",
+          "FN:گل RAMA",
+          "ORG:گل RAMA",
+          "TEL;TYPE=CELL:+989300851922",
+          "NOTE:گلفروشی گل RAMA - رشت",
+          "END:VCARD",
+          "",
+        ].join("\r\n");
+        const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "RAMA-Gol.vcf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
   
   
 /* ==================================================  
@@ -1373,5 +1352,4 @@ function toggleQR(){
 }  
   
 </script>  </body>  </html>   
-سیو کانتکت مشکل داره   
-گوگل مپ هم بدونه vpn باز نمیشه حتما باید vpn روشن باشه تا باز بشه 
+
